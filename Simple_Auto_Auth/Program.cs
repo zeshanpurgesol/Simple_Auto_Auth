@@ -1,25 +1,30 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Simple_Auto_Auth.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+builder.Services.AddAuthentication()
+    .AddBearerToken(IdentityConstants.BearerScheme);
+builder.Services.AddAuthorization();
+builder.Services.AddIdentityCore<IdentityUser>()
+    .AddEntityFrameworkStores<AppDataContext>()
+    .AddApiEndpoints();
+builder.Services.AddDbContext<AppDataContext>(options=>options
+.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStr")));
 
-// Configure the HTTP request pipeline.
+var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
+app.MapIdentityApi<IdentityUser>();
 app.Run();
