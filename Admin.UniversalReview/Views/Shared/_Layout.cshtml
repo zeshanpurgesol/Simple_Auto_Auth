@@ -1,0 +1,211 @@
+﻿@* <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin.UniversalReview</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Admin.UniversalReview.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Admin.UniversalReview</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Pages">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Admin.UniversalReview - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+ *@
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>- - Zero.0 - - Dashboard - -</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #000; /* Pure black for hacker theme */
+            color: #00ff00; /* Bright green for hacker style */
+            font-family: "Courier New", Courier, monospace; /* Machine-like font */
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard {
+            padding: 20px;
+        }
+
+    
+
+        .card {
+            background-color: #111; /* Dark gray for card background */
+            border: 1px solid #00ff00; /* Bright green border */
+            box-shadow: 0px 0px 15px #00ff00; /* Neon green glow */
+            color: #00ff00;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        .navbar {
+            background-color: #111;
+            border-bottom: 2px solid #00ff00;
+        }
+
+        .navbar-brand {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+            .navbar-brand:hover {
+                color: red;
+                font-weight: bold;
+            }
+
+
+        .nav-link {
+            color: #00ff00;
+        }
+
+            .nav-link:hover {
+                color: red;
+                text-decoration: underline;
+            }
+
+        table {
+            color: #00ff00;
+        }
+
+        th, td {
+            border: 1px solid #00ff00;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #111;
+        }
+
+        td {
+            background-color: #222;
+        }
+
+     /*    footer {
+            background-color: #111;
+            border-top: 2px solid #00ff00;
+            padding: 10px 20px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            white-space: nowrap;
+            line-height: 60px;
+            color: #00ff00;
+        } */
+    </style>
+</head>
+<body>
+    <header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Hacker Dashboard</a>
+            <button style="border:1px solid #00ff00; color:#00ff00;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: #00ff00; background-color:#00ff00;"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" asp-controller="Pages" asp-action="Index">Pages</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" asp-controller="Users" asp-action="Index">Users</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" asp-controller="Profiles" asp-action="Index">Profiles</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="#">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" asp-controller="Auth" asp-action="Logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+@* 
+    <footer class=" footer">
+        <div class="container">
+            &copy; 2024 - Admin.UniversalReview - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer> *@
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
