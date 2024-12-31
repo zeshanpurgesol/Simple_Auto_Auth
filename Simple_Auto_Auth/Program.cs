@@ -16,8 +16,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDataContext>(options=>options
 .UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStr")));
 //builder.Services.AddTransient<Student>(new Student());
-//builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
-//builder.Services.AddScoped<IStudentServices, StudentServices>();
+builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
+builder.Services.AddScoped<IStudentServices, StudentServices>();
 //builder.Services.AddSingleton<IRepo<Student>,Repo<Student>>();
 
 builder.Services.AddAuthentication()

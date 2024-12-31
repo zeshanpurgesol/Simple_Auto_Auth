@@ -14,10 +14,10 @@ namespace InfrastructureLayer.Repo
         private readonly AppDataContext dbContext;
         private readonly DbSet<T> entity;
 
-        public Repo(AppDataContext dbContext, DbSet<T> entity)
+        public Repo(AppDataContext dbContext)
         {
             this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-            this.entity = entity;
+            this.entity = dbContext.Set<T>();
         }
 
         public async Task<T?> Delete(object id)

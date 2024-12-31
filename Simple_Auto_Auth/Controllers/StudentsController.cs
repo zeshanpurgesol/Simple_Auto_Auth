@@ -19,23 +19,39 @@ namespace Simple_Auto_Auth.Controllers
 
         // GET: api/<StudentsController>
         [HttpGet]
-        public IEnumerable<Student> Get()
+        public async Task<IActionResult> Get()
         {
-            return studentServices.GetStudents();
+            var students = await Task.Run(() => studentServices.GetStudents().ToList());
+            return Ok(students);
         }
+
 
         // GET api/<StudentsController>/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return Ok(studentServices.GetStudent(id));
+            var student = await studentServices.GetStudent(id);
+            if (student == null)
+                return NotFound();
+            return Ok(student);
         }
+
 
         // POST api/<StudentsController>
         [HttpPost]
-        public IActionResult Post([FromBody] Student value)
+        public async Task<IActionResult> Post([FromBody] Student value)
         {
-            return Ok(studentServices.AddStudent(value));
+            var student = await studentServices.AddStudent(value);
+            return Ok(student);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var student = await studentServices.DeleteStudent(id);
+            if (student == null)
+                return NotFound();
+            return Ok(student);
         }
 
         // PUT api/<StudentsController>/5
@@ -45,11 +61,6 @@ namespace Simple_Auto_Auth.Controllers
             return Ok(studentServices.UpdateStudent(value));
         }
 
-        // DELETE api/<StudentsController>/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            return Ok(studentServices?.DeleteStudent(id));  
-        }
+   
     }
 }
